@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tag-Point-Label
+
+A modern web application for image dataset management and annotation, optimized for Computer Vision tasks (e.g., YOLO).
+
+Upload images, draw bounding boxes, assign classes, and export annotations with ease.
+
+---
+
+## Features
+
+- Upload new images via the web interface
+- Display all uploaded images in a gallery
+- Select any image to open a dedicated labeling page
+- Draw bounding boxes and assign class labels
+- Save label data (x, y, w, h) directly to the database (Prisma + SQLite)
+- Delete unwanted labels
+- (Optional) Export dataset and annotations in YOLO format
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Set up the database (Prisma + SQLite)
+
+```bash
+npx prisma migrate dev --name init
+
+```
+
+### 3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will run at http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
 
-## Learn More
+1. Open the home page (/)
+2. Upload new images
+3. Click "Edit" (or Label) to open the label page for each image
+4. Draw bounding boxes, assign classes, and save
+5. Delete labels if needed
+6. (Optional) Export YOLO labels using the utility at `/lib/yolo-export.ts`
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Next.js 15+** (App Router, React)
+- **Prisma ORM** + SQLite
+- **TailwindCSS** (UI Framework)
+- **TypeScript**
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Uploaded images are saved to the `public/uploads/` folder
+- Label data is stored as normalized coordinates (0-1) with class names
+- You can adjust the class list via the code as needed# Tag-Point-Label
+# Tag-Point-Label

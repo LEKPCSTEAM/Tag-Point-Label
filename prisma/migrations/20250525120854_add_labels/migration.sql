@@ -1,0 +1,11 @@
+-- CreateTable
+CREATE TABLE "Label" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "imageId" INTEGER NOT NULL,
+    "className" TEXT NOT NULL,
+    "x" REAL NOT NULL,
+    "y" REAL NOT NULL,
+    "w" REAL NOT NULL,
+    "h" REAL NOT NULL,
+    CONSTRAINT "Label_imageId_fkey" FOREIGN KEY ("imageId") REFERENCES "Image" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
